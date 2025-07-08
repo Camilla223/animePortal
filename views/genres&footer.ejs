@@ -1,0 +1,29 @@
+<% if (genresAnime.length) { %>
+<section class="mb-5">
+  <h2 class="title">DISCOVER ANIME BY GENRE</h2>
+  <div class="row row-cols-3 justify-content-lg-center">
+    <% genresAnime.forEach((genre, index) => { %>
+    <% if (index%6 == 0) {%>
+    <div class="col-4 col-lg-3 mb-3">
+      <ul class="nav flex-column">
+        <% } %>
+        <li class="nav-item mb-2"><a href="/genres/<%- genre.name %>/<%- genre.mal_id %>" class="genreslink nav-link p-0 white-text"><%- genre.name %></a></li>
+        <% if (index%6 == 5) { %>
+      </ul>
+    </div>
+    <% } %>
+    <% }); %>
+  </div>
+</section>
+<% } %>
+
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+  <div class="col-md-4 d-flex align-items-center">
+    <span class="mb-3 mb-md-0">© <%= new Date().getFullYear() %> Camilla Toso</span>
+  </div>
+  <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+    <li class="ms-3"><a class="white-text" href="https://linkedin.com/in/camilla-toso-3a62382b3"><i class="fa-brands fa-xl fa-linkedin"></i></a></li>
+    <li class="ms-3"><a class="white-text" href="https://github.com/Camilla223"><i class="fa-brands fa-xl fa-github"></i></a></li>
+    <li class="ms-3"><a class="white-text" href="mailto:camillatoso99@gmail.com"><i class="fa-regular fa-xl fa-paper-plane"></i></a></li>
+  </ul>
+</footer>

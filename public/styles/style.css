@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital@0;1&display=swap');
+:root {
+    --white: aliceblue;
+    --black: #212534;
+    --grey: #6d707bf3;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+}
+
+.greybkgd {
+    background-color: var(--grey);
+}
+
+.card {
+    height: 100%;
+}
+
+.img-div {
+    height: 100vh;
+    position: relative;
+    text-align: center;
+    color: black;
+}
+
+.text-on-img {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 250px;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 1.5rem;
+    }
+
+    .text-on-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20rem;
+        font-size: 2.5rem;
+    }
+}
+
+.img-div img {
+    height: 100%;
+    width: 100%;
+}
+
+.title {
+    font-weight: bold;
+    font-family: "Sour Gummy", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    
+}
+
+.black-text {
+    color: var(--black);
+}
+.white-text {
+    color: var(--white);
+}
+
+a.genreslink:hover,a.genreslink:focus {
+    color: var(--white) !important;
+    text-decoration: underline dashed var(--white);
+}
+
+a, a:visited {
+    color: var(--white) !important;
+    text-decoration: none;
+}
+
+.imglinkhome {
+    width: 200px;
+    height: auto;
+    color: var(--white);
+    margin-right: 0px;
+    transform: ease;
+    transition: all 500ms;
+    
+}
+
+.imglinkhome:hover {
+    width: 200px;
+    height: auto;
+    margin-right: 8px;
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding-bottom: 0.25rem;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('header') %>
+</head>
+
+<body>
+  <div class="img-div mb-5">
+    <img src="images/toriigate.jpg">
+    <div class="text-on-img">
+      <h1 class="title">ANIME GATE</h1>
+      <p class="black-text title fs-6 fw-bolder">Rainy day in Berlin and don’t know what to do? Check out our anime list and dive into epic adventures!</p>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <section class="mb-5">
+      <h2 class="title">TOP 10 ANIME SERIES OF ALL TIME</h2>
+
+      <div class="row justify-content-lg-between greybkgd rounded-2 py-3">
+        <% favouritesAnime.forEach(anime => { %>
+        <div class="col-md-6 col-lg-2 mb-2 m-lg-2">
+          <a href="/anime/<%- anime.mal_id%>" class=" card-link p-0">
+            <div class="card border-dark black-text">
+              <img src=<%- anime.images.jpg.image_url %> alt="Anime cover image">
+              <div class="card-body">
+                <h6 class="card-title fw-bold"><%- anime.title_english ?? anime.title %> </h6>
+                <p class="card-text">(<%- anime.aired.prop.from.year %> - <%- anime.aired.prop.to.year || "on going" %>)
+                </p>
+                <p class="text-muted">Episodes: <%- anime.episodes %> </p>
+              </div>
+            </div>
+          </a>
+        </div> <%}); %>
+      </div>
+    </section>
+
+    <section class="mb-5">
+      <h2 class="title">TOP 10 RATED ANIME</h2>
+
+      <div class="row justify-content-lg-between greybkgd rounded-2 py-3">
+        <% popularAnime.forEach(anime => { %>
+        <div class="col-md-6 col-lg-2 mb-2 m-lg-2">
+          <a href="/anime/<%- anime.mal_id%>" class=" card-link p-0">
+            <div class="card border-dark black-text">
+              <img src=<%- anime.images.jpg.image_url %> class="card-img-top" alt="Anime cover image" />
+              <div class="card-body">
+                <h6 class="card-title fw-bold "><%- anime.title_english ?? anime.title %> </h6>
+                <p class="card-text">(<%- anime.aired.prop.from.year %> - <%- anime.aired.prop.to.year || "on going" %>)
+                </p>
+                <p class="text-muted">Episodes: <%- anime.episodes %> </p>
+              </div>
+            </div>
+          </a>
+        </div> <%}); %>
+      </div>
+    </section>
+
+    <%- include('genres&footer') %>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
