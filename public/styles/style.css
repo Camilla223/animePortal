@@ -67,13 +67,18 @@ body {
     color: var(--white);
 }
 
+.form-control:focus {
+    border-color: var(--white) !important;
+    box-shadow: 0 0 5px var(--white)!important; 
+}
+
 a.genreslink:hover,a.genreslink:focus {
     color: var(--white) !important;
     text-decoration: underline dashed var(--white);
 }
 
-a, a:visited {
-    color: var(--white) !important;
+a, a:visited, a.iconlink, a.iconlink:visited {
+    color: var(--white);
     text-decoration: none;
 }
 
@@ -101,4 +106,8 @@ ul {
 
 li {
     padding-bottom: 0.25rem;
+}
+
+a.iconlink:hover, a.iconlink:focus {
+    color: var(--grey) !important;
 }

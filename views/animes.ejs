@@ -10,11 +10,12 @@
 
   <div class="container">
     <%- include('backhomebar') %>
+    <%- include('searchbar') %>
     <section class="mb-5">
-      <h2 class="title text-uppercase">TOP 20 <%- genre%> ANIME</h2>
+      <h2 class="title text-uppercase"><%= title %></h2>
 
       <div class="row justify-content-lg-between greybkgd rounded-2 py-3">
-        <% top20AnimeGenre.forEach(anime => { %>
+        <% animeList.forEach(anime => { %>
         <div class="col-md-6 col-lg-2 mb-2 m-lg-2">
           <a href="/anime/<%- anime.mal_id%>" class=" card-link p-0">
             <div class="card border-dark black-text">

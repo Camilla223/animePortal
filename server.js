@@ -41,8 +41,8 @@ async function searchAnimes(setParams) {
       baseURL: API_URL,
       params: setParams,
     };
-    const genres = await rateLimitedAxios.get("/anime", config);
-    return genres.data.data;
+    const animes = await rateLimitedAxios.get("/anime", config);
+    return animes.data.data;
   } catch (error) {
     console.error(error.response.data);
     res.status(500);
@@ -103,6 +103,30 @@ app.get("/", async (req, res) => {
   });
 });
 
+app.post("/search", async (req, res) => {
+  var animeInput = req.body.animeInput;
+  var searchParams = {
+    q: animeInput,
+  };
+  try {
+    var matchedAnimes = await searchAnimes(searchParams);
+  } catch (error) {
+    console.error("Error occurred while fetching data" + error.response.data);
+  }
+
+  try {
+    var animeGenres = await getAnimeGenres();
+  } catch (error) {
+    console.error("Error occurred while fetching data" + error.response.data);
+  }
+
+  res.render("animes.ejs", {
+    title: `Results for: ${animeInput}`,
+    animeList: matchedAnimes,
+    genresAnime: animeGenres,
+  });
+});
+
 app.get("/genres/:name/:id", async (req, res) => {
   var genreId = req.params.id;
   var genre = req.params.name;
@@ -124,9 +148,9 @@ app.get("/genres/:name/:id", async (req, res) => {
     console.error("Error occurred while fetching data" + error.response.data);
   }
 
-  res.render("genre.ejs", {
-    genre: genre,
-    top20AnimeGenre: top20AnimeGenre,
+  res.render("animes.ejs", {
+    title: `TOP 20 ${genre} ANIME`,
+    animeList: top20AnimeGenre,
     genresAnime: animeGenres,
   });
 });
