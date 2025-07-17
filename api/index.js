@@ -7,7 +7,6 @@ import CustomError from "../public/Utils/CustomError.js";
 
 const app = express();
 app.set("view engine", "ejs");
-app.engine("ejs", require("ejs").__express);
 const port = 3000;
 const API_URL = "https://api.jikan.moe/v4";
 const axiosInstance = axios.create();
