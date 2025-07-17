@@ -4,6 +4,8 @@ import bodyParser from "body-parser";
 import axiosRateLimit from "axios-rate-limit";
 import validator from "validator";
 import CustomError from "../public/Utils/CustomError.js";
+import path from "path";
+const __dirname = path.resolve();
 
 const app = express();
 const port = 3000;
@@ -20,7 +22,7 @@ const baseURLconfig = {
 };
 
 app.set("view engine", "ejs");
-app.set("views", express.static("views"));
+app.set("views", path.join(__dirname, "views"));
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
