@@ -6,6 +6,8 @@ import validator from "validator";
 import CustomError from "../public/Utils/CustomError.js";
 
 const app = express();
+app.set("view engine", "ejs");
+app.engine("ejs", require("ejs").__express);
 const port = 3000;
 const API_URL = "https://api.jikan.moe/v4";
 const axiosInstance = axios.create();
@@ -96,7 +98,7 @@ app.get("/", async (req, res) => {
     console.error("Error occurred while fetching data" + error.response.data);
   }
 
-  res.render("index.ejs", {
+  res.render("index", {
     favouritesAnime: top10favouritesAnime,
     popularAnime: top10ratedAnime,
     genresAnime: animeGenres,
@@ -120,7 +122,7 @@ app.post("/search", async (req, res) => {
     console.error("Error occurred while fetching data" + error.response.data);
   }
 
-  res.render("animes.ejs", {
+  res.render("animes", {
     title: `Results for: ${animeInput}`,
     animeList: matchedAnimes,
     genresAnime: animeGenres,
@@ -148,7 +150,7 @@ app.get("/genres/:name/:id", async (req, res) => {
     console.error("Error occurred while fetching data" + error.response.data);
   }
 
-  res.render("animes.ejs", {
+  res.render("animes", {
     title: `TOP 20 ${genre} ANIME`,
     animeList: top20AnimeGenre,
     genresAnime: animeGenres,
@@ -168,7 +170,7 @@ app.get("/anime/:id", async (req, res, next) => {
     const err = new CustomError(anime.message, anime.status);
     next(err);
   } else {
-    res.render("anime.ejs", {
+    res.render("anime", {
       anime: anime,
       genresAnime: animeGenres,
     });
@@ -192,7 +194,7 @@ app.use(async (error, req, res, next) => {
 
   error.statusCode = error.statusCode || 500;
   error.status = error.status || "Error occured";
-  res.status(error.statusCode).render("error.ejs", {
+  res.status(error.statusCode).render("error", {
     status: error.statusCode,
     message: error.message,
     genresAnime: animeGenres,
