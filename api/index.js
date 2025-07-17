@@ -3,7 +3,7 @@ import axios from "axios";
 import bodyParser from "body-parser";
 import axiosRateLimit from "axios-rate-limit";
 import validator from "validator";
-import CustomError from "./public/Utils/CustomError.js";
+import CustomError from "../public/Utils/CustomError.js";
 
 const app = express();
 const port = 3000;
