@@ -6,7 +6,6 @@ import validator from "validator";
 import CustomError from "../public/Utils/CustomError.js";
 
 const app = express();
-app.set("view engine", "ejs");
 const port = 3000;
 const API_URL = "https://api.jikan.moe/v4";
 const axiosInstance = axios.create();
@@ -20,6 +19,8 @@ const baseURLconfig = {
   baseURL: API_URL,
 };
 
+app.set("view engine", "ejs");
+app.set("views", express.static("views"));
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -196,7 +197,7 @@ app.use(async (error, req, res, next) => {
   res.status(error.statusCode).render("error", {
     status: error.statusCode,
     message: error.message,
-    genresAnime: animeGenres,
+    genresAnime: [] || animeGenres,
   });
 });
 
