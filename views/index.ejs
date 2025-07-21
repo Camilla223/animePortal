@@ -10,20 +10,20 @@
     <img src="images/toriigate.jpg">
     <div class="text-on-img">
       <h1 class="title">ANIME GATE</h1>
-      <p class="black-text title fs-6 fw-bolder">Rainy day in Berlin and don’t know what to do? Check out our anime list and dive into epic adventures!</p>
+      <h6 class="black-text title  fw-bolder">Rainy day in Berlin and don’t know what to do? Check out our anime list and dive into epic adventures!</h6>
     </div>
   </div>
 
-  <div class="container">
+  <div class="container-md-fluid container-lg">
 
     <%- include('searchbar') %>
 
     <section class="mb-5">
       <h2 class="title">TOP 10 ANIME SERIES OF ALL TIME</h2>
 
-      <div class="row justify-content-lg-between greybkgd rounded-2 py-3">
+      <div class="row justify-content-lg-between greybkgd rounded-3 py-md-3 px-lg-1 mx-md-2 mx-lg-0">
         <% favouritesAnime.forEach(anime => { %>
-        <div class="col-md-6 col-lg-2 mb-2 m-lg-2">
+        <div class="col-md-6 col-lg-2 mb-3 my-lg-2 mx-lg-1">
           <a href="/anime/<%- anime.mal_id%>" class=" card-link p-0">
             <div class="card border-dark black-text">
               <img src=<%- anime.images.jpg.image_url %> alt="Anime cover image">
@@ -42,9 +42,9 @@
     <section class="mb-5">
       <h2 class="title">TOP 10 RATED ANIME</h2>
 
-      <div class="row justify-content-lg-between greybkgd rounded-2 py-3">
+      <div class="row justify-content-lg-between greybkgd rounded-3 py-md-3 px-lg-1 mx-md-2 mx-lg-0">
         <% popularAnime.forEach(anime => { %>
-        <div class="col-md-6 col-lg-2 mb-2 m-lg-2">
+        <div class="col-md-6 col-lg-2 mb-3 my-lg-2 mx-lg-1">
           <a href="/anime/<%- anime.mal_id%>" class=" card-link p-0">
             <div class="card border-dark black-text">
               <img src=<%- anime.images.jpg.image_url %> class="card-img-top" alt="Anime cover image" />

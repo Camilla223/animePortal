@@ -1,10 +1,10 @@
 <% if (genresAnime.length) { %>
 <section class="mb-5">
   <h2 class="title">DISCOVER ANIME BY GENRE</h2>
-  <div class="row row-cols-3 justify-content-lg-center">
+  <div class="row row-cols-3 justify-content-around">
     <% genresAnime.forEach((genre, index) => { %>
     <% if (index%6 == 0) {%>
-    <div class="col-4 col-lg-3 mb-3">
+    <div class="col-3 mb-3">
       <ul class="nav flex-column">
         <% } %>
         <li class="nav-item mb-2"><a href="/genres/<%- genre.name %>/<%- genre.mal_id %>" class="genreslink nav-link p-0 white-text"><%- genre.name %></a></li>

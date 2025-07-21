@@ -8,12 +8,12 @@
 
 <body>
 
-  <div class="container">
+  <div class="container-md-fluid container-lg">
     <%- include('backhomebar') %>
     <article class="mb-5 greybkgd p-3 rounded-2">
-      <h1 class="title text-uppercase"><%- anime.title_english || anime.title %></h1>
+      <h1 class="title text-uppercase text-md-center text-lg-start"><%- anime.title_english || anime.title %></h1>
       <div class="row row-cols-1 row-cols-lg-3">
-        <div class="col col-lg-4">
+        <div class="col-4 offset-4 col-lg-4 offset-lg-0">
           <img class="img-fluid" src="<%- anime.images.jpg.large_image_url%>" />
         </div>
         <div class="col-8 col-lg-5 mt-3 mt-lg-0">
