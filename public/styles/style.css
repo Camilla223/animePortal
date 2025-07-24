@@ -55,6 +55,7 @@ h2.title {
      font-size: clamp(18px, 4vw, 36px);
  }
 
+
 .black-text {
     color: var(--black);
 }
@@ -110,11 +111,27 @@ a.iconlink:hover, a.iconlink:focus {
     color: var(--grey) !important;
 }
 
+.list-group-item {
+    background-color: inherit;
+    border: none;
+    padding: 0;
+    padding-left: 0.25rem;
+}
+
+.animeul {
+    padding-left: 0.25rem;
+}
 @media only screen and (max-width: 992px) {
     .text-on-img {
         position: absolute;
+        background-color: rgb(239,239,239);/* Fallback color */
+        background-color: rgba(239, 239, 239, 0.4);
         top: 37%;
         left: 34%;
         width: 20rem;
     }
+         h6.title,
+         h6.card-title {
+             font-size: 2vw;
+         }
 }
